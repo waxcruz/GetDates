@@ -27,9 +27,6 @@ class DatesInRange:
         dateFormat = "%Y-%m-%d"
         dateStart = datetime.strptime(self.startDate,dateFormat)
         dateEnd = datetime.strptime(self.endDate, dateFormat)
-        extractDate = copy.copy(dateStart)
-        extractDate = extractDate - timedelta(days=1)
-        diffDays = (dateEnd - extractDate).days
+        diffDays = (dateEnd - dateStart).days + 1
         for i in range(0,diffDays):
-            extractDate = extractDate + timedelta(days=1)
-            yield extractDate.strftime(dateFormat)
+            yield (dateStart + timedelta(days=i)).strftime(dateFormat)
