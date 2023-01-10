@@ -5,14 +5,14 @@ Created on Dec 30, 2022
 '''
 
 import unittest
-import getDates
+import GetDatesPackage.getDates as dates
 
 class GetDatesTestCase(unittest.TestCase):
     
     def setUp(self):
         self.reportStartDate = "2022-12-25"
         self.reportEndDate = "2023-01-01"
-        self.reportDates = getDates.DatesInRange(self.reportStartDate, self.reportEndDate)                  
+        self.reportDates = dates.DatesInRange(self.reportStartDate, self.reportEndDate)                  
 
     def test_range(self):
         testDates = []
